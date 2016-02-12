@@ -1,8 +1,7 @@
 #!/bin/bash
 THIS_DIR="$(basename $( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd ))"
-TARBALLNAME=${THIS_DIR}.tgz
+TARBALLNAME=${THIS_DIR}.zip
 mvn -q clean
-pushd ..
-tar zcf ${TARBALLNAME} ${THIS_DIR}/pom.xml ${THIS_DIR}/README.md ${THIS_DIR}/LICENSE ${THIS_DIR}/src ${THIS_DIR}/package.sh
-popd
+rm -f output.txt nohup.out
+zip -r -X ../${TARBALLNAME} pom.xml README.md LICENSE src package.sh
 
